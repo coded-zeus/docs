@@ -57,11 +57,15 @@ LoRA solves this problem by realizing that you don't need to change the entire "
     We train only A and B on the new data.
   </Step>
   <Step title="Step 4">
-    When the model runs, the output is calculated as: Output = (W + A X B) X Input
+    When the model runs, the output is calculated as:
+    
+    <Latex>Output = (W + A \times B) \times Input</Latex>
   </Step>
 </Steps>
 
 <img src="/images/LoRA.png" alt="Full-Parameter Fine-tuning vs LoRA Fine-tuning comparison diagram" />
+
+*Full-Parameter Fine-tuning vs LoRA Fine-tuning (source: [GeeksforGeeks](https://www.geeksforgeeks.org/deep-learning/what-is-low-rank-adaptation-lora/))*
 
 In the illustrative image above, notice that the training path for full fine-tuning flows directly through the massive block of Pre-trained weights. This means every parameter in the main model is being recalculated and updated. Meanwhile, for LoRA, the Pre-trained weights are completely frozen - no training signal passes through them. Instead, the training process flows exclusively through the adapter, containing the small matrices A and B.
 
